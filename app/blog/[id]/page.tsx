@@ -10,7 +10,7 @@ type Params = {
 const page = async ({ params: { id } }: Params) => {
   const postData = await getPost(id);
   return (
-    <div className="bg-lblue rounded-xl grid grid-cols-1 lg:w-7/12 w-11/12 mx-auto my-6 gap-6 lg:shadow lg:p-20 px-4">
+    <div className="bg-lblue rounded-xl grid grid-cols-1 lg:w-7/12 w-11/12 mx-auto lg:my-6 mt-52 gap-6 lg:shadow lg:p-20 px-4">
       <Link href={"/blog"} className="text-lg underline-offset-2 font-bold">
         BACK
       </Link>

@@ -14,7 +14,7 @@ const Blog = async () => {
   const posts: Post[] = await res.json();
   return (
     <>
-      <div className="w-full p-5 my-5 mx-auto lg:w-8/12 grid lg:grid-cols-2 grid-cols-1 gap-12 lg:p-10 text-lg">
+      <div className="w-full p-5 lg:my-5 mt-44 mx-auto lg:w-8/12 grid lg:grid-cols-2 grid-cols-1 gap-12 lg:p-10 text-lg">
         {posts.map((post) => (
           <Link
             href={`/blog/${post.id}`}

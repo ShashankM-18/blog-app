@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 async function fetchBlogs() {
-  const res = await fetch("https://blog-app-zeta-vert.vercel.app/api/blog", {
+  const res = await fetch("http://localhost:3000/api/blog", {
     next: {
-      revalidate: 5,
+      revalidate: 3,
     },
   });
   const data = await res.json();

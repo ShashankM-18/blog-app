@@ -11,7 +11,7 @@ type updateBlogParams = {
 };
 
 const updateBlog = async (data: updateBlogParams) => {
-  const res = fetch(`https://blog-app-zeta-vert.vercel.app/api/blog/${data.id}`, {
+  const res = fetch(`http://localhost:3000/api/blog/${data.id}`, {
     method: "PUT",
     body: JSON.stringify({ title: data.title, description: data.description }),
     //@ts-ignore
@@ -21,7 +21,7 @@ const updateBlog = async (data: updateBlogParams) => {
 };
 
 const deleteBlog = async (id: string) => {
-  const res = fetch(`https://blog-app-zeta-vert.vercel.app/api/blog/${id}`, {
+  const res = fetch(`http://localhost:3000/api/blog/${id}`, {
     method: "DELETE",
     //@ts-ignore
     "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const deleteBlog = async (id: string) => {
 };
 
 const getBlogById = async (id: string) => {
-  const res = await fetch(`https://blog-app-zeta-vert.vercel.app/api/blog/${id}`);
+  const res = await fetch(`http://localhost:3000/api/blog/${id}`);
   const data = await res.json();
   return data.post;
 };
@@ -77,7 +77,7 @@ const EditBlog = ({ params }: { params: { id: string } }) => {
   return (
     <Fragment>
       <Toaster />
-      <div className="w-full m-auto p-40 flex lg:mt-12 mt-44">
+      <div className="w-full m-auto flex lg:mt-12 mt-44">
         <div className="flex flex-col justify-center items-center m-auto">
           <p className="mb-4 text-4xl text-[#252B42] font-bold underline">
             Edit the blog
@@ -91,6 +91,7 @@ const EditBlog = ({ params }: { params: { id: string } }) => {
             />
             <textarea
               ref={descRef}
+              rows={10}
               placeholder="Enter description"
               className="rounded-md border border-[#23A6F0] py-4 px-10 w-full my-2"
             ></textarea>

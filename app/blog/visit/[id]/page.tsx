@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const getBlogById = async (id: string) => {
-  const res = await fetch(`https://blog-app-zeta-vert.vercel.app/api/blog/${id}`);
+  const res = await fetch(`http://localhost:3000/api/blog/${id}`);
   const data = await res.json();
   return data.post;
 };
@@ -18,7 +18,7 @@ const VisitBlog = ({ params }: { params: { id: string } }) => {
   }, [params.id]);
 
   return (
-    <div className="lg:mt-12 mt-44 h-screen bg-slate-100 rounded-xl shadow-xl mx-40">
+    <div className="w-full p-5 lg:mt-12 mt-44 mx-auto lg:w-8/12 grid lg:grid-cols-1 rounded-xl shadow-lg bg-slate-200 lg:p-10 text-lg">
       <h2 className="text-center text-[#252B42] underline pt-12 text-5xl font-bold uppercase">
         {blogData.title}
       </h2>

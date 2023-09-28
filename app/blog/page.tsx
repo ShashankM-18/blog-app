@@ -28,6 +28,7 @@ export default async function Blog() {
       <div className="w-full p-5 lg:my-5 mt-44 mx-auto lg:w-8/12 grid lg:grid-cols-2 grid-cols-1 gap-12 lg:p-10 text-lg">
         {posts?.map((post: any) => (
           <Link
+          key={post.id}
             href={`blog/visit/${post.id}`}
             className="w-full py-16 px-4 lg:px-10 text-center border border-gray-50 hover:border-[#23A6F0] shadow-lg hover:scale-110 lg:hover:bg-[#23A6F0] transition delay-150 duration-300 ease-in-out rounded-xl"
           >

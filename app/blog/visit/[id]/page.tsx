@@ -15,7 +15,7 @@ const VisitBlog = ({ params }: { params: { id: string } }) => {
     getBlogById(params.id).then((data) => {
       setBlogData(data);
     });
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="lg:mt-12 mt-44 h-screen bg-slate-100 rounded-xl shadow-xl mx-40">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 async function fetchBlogs() {
-  const res = await fetch("http://localhost:3000/api/blog", {
+  const res = await fetch("http://127.0.0.1:3000/api/blog", {
     next: {
       revalidate: 3,
     },

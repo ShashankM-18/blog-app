@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.1.0",
+    "@prisma/client": "^5.3.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
+    "prisma": "^5.3.1",
     "tailwindcss": "latest",
     "typescript": "latest"
   }

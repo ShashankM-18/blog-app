@@ -1,13 +1,20 @@
 import Link from "next/link";
 
 async function fetchBlogs() {
-  const res = await fetch("https://blog-app-zeta-vert.vercel.app/api/blog", {
-    next: {
-      revalidate: 3,
-    },
-  });
-  const data = await res.json();
-  return data.posts;
+  try {
+    const res = await fetch("https://blog-app-zeta-vert.vercel.app/api/blog", {
+      next: {
+        revalidate: 3,
+      },
+    });
+    if (!res.ok) {
+      throw new Error(`API request failed with status: ${res.status}`);
+    }
+    const data = await res.json();
+    return data.posts;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export default async function Blog() {

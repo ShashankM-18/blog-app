@@ -7,8 +7,10 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import Login from "./Login";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Navbar = () => {
+  const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavBar = () => {
@@ -17,12 +19,22 @@ const Navbar = () => {
 
   return (
     <div className="flex w-full h-[3.625rem] lg:mt-3 mt-0 items-center flex-wrap">
-      <Link
-        href={"/"}
-        className="text-2xl pl-[2.37rem] pr-24 text-[#252B42] font-bold"
-      >
-        Bandage
-      </Link>
+      <div className="flex flex-col">
+        <Link
+          href={"/"}
+          className="text-2xl pl-[2.37rem] pr-24 text-[#252B42] font-bold"
+        >
+          Bandage
+        </Link>
+        {user && (
+          <Link
+            href={"/blog/add"}
+            className="ml-9 mt-4 text-[#23A6F0] text-lg font-bold"
+          >
+            Add New Blog
+          </Link>
+        )}
+      </div>
       <ul className="lg:flex w-1/3 justify-between text-[#737373] font-bold cursor-pointer hidden">
         <li>
           <Link href={"/"}>Home</Link>

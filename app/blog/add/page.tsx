@@ -39,7 +39,7 @@ const AddBlog = () => {
   return (
     <Fragment>
       <Toaster />
-      <div className="w-full m-auto flex lg:mt-12 mt-44">
+      <div className="w-full m-auto flex lg:mt-24 mt-44">
         <div className="flex flex-col justify-center items-center m-auto">
           <p className="text-4xl mb-4 text-[#252B42] font-bold underline">
             Add a blog

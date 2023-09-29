@@ -85,7 +85,7 @@ const EditBlog = ({ params }: { params: { id: string } }) => {
   return (
     <Fragment>
       <Toaster />
-      <div className="w-full m-auto flex lg:mt-12 mt-44">
+      <div className="w-full m-auto flex lg:mt-24 mt-44">
         <div className="flex flex-col justify-center items-center m-auto">
           <p className="mb-4 text-4xl text-[#252B42] font-bold underline">
             Edit the blog

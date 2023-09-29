@@ -26,14 +26,7 @@ export default async function Blog() {
         <p className="text-[#252B42] text-4xl font-bold my-12 underline">
           BLOG SECTION
         </p>
-        <Link
-          href={"/blog/add"}
-          className="rounded-md py-4 px-10 text-xl bg-transparent border border-[#23A6F0] text-[#23A6F0] hover:bg-[#23A6F0] hover:text-white font-semibold"
-        >
-          Add New Blog
-        </Link>
       </div>
-
       <div className="w-full p-5 lg:my-5 mt-44 mx-auto lg:w-8/12 grid lg:grid-cols-2 grid-cols-1 gap-12 lg:p-10 text-lg">
         {posts?.map((post: any) => (
           <Link

@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const getBlogById = async (id: string) => {
   const res = await fetch(
@@ -12,6 +13,7 @@ const getBlogById = async (id: string) => {
 
 const VisitBlog = ({ params }: { params: { id: string } }) => {
   const [blogData, setBlogData] = useState({ title: "", description: "" });
+  const { user } = useUser();
 
   useEffect(() => {
     getBlogById(params.id).then((data) => {
@@ -25,14 +27,16 @@ const VisitBlog = ({ params }: { params: { id: string } }) => {
         {blogData.title}
       </h2>
       <h2 className="p-16 text-xl">{blogData.description}</h2>
-      <div className="text-center mt-24">
-        <Link
-          href={`/blog/edit/${params.id}`}
-          className="py-4 px-10 text-white bg-[#23A6F0] text-2xl font-bold rounded-md hover:bg-sky-600"
-        >
-          Edit Blog
-        </Link>
-      </div>
+      {user && (
+        <div className="text-center mt-24">
+          <Link
+            href={`/blog/edit/${params.id}`}
+            className="py-4 px-10 text-white bg-[#23A6F0] text-2xl font-bold rounded-md hover:bg-sky-600"
+          >
+            Edit Blog
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

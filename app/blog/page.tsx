@@ -4,7 +4,7 @@ async function fetchBlogs() {
   try {
     const res = await fetch("https://blog-app-zeta-vert.vercel.app/api/blog", {
       next: {
-        revalidate: 3,
+        revalidate: 2,
       },
     });
     if (!res.ok) {

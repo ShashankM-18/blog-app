@@ -11,7 +11,7 @@ const postBlog = async ({
   title: string;
   description: string;
 }) => {
-  const res = fetch("http://127.0.0.1:3000/api/blog", {
+  const res = fetch("https://blog-app-zeta-vert.vercel.app/api/blog", {
     method: "POST",
     body: JSON.stringify({ title, description }),
     //@ts-ignore
@@ -41,7 +41,9 @@ const AddBlog = () => {
       <Toaster />
       <div className="w-full m-auto flex lg:mt-12 mt-44">
         <div className="flex flex-col justify-center items-center m-auto">
-          <p className="text-4xl mb-4 text-[#252B42] font-bold underline">Add a blog</p>
+          <p className="text-4xl mb-4 text-[#252B42] font-bold underline">
+            Add a blog
+          </p>
           <form onSubmit={handleSubmit}>
             <input
               ref={titleRef}

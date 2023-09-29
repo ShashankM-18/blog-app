@@ -3,7 +3,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const getBlogById = async (id: string) => {
-  const res = await fetch(`http://127.0.0.1:3000/api/blog/${id}`);
+  const res = await fetch(
+    `https://blog-app-zeta-vert.vercel.app/api/blog/${id}`
+  );
   const data = await res.json();
   return data.post;
 };

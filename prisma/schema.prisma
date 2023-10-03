@@ -15,4 +15,5 @@ model Post{
   title String
   description String
   date DateTime @default(now())
+  userId String?
 }

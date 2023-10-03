@@ -3,17 +3,20 @@
 import { useRouter } from "next/navigation";
 import { Fragment, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const postBlog = async ({
   title,
   description,
+  userId,
 }: {
   title: string;
   description: string;
+  userId: string;
 }) => {
   const res = fetch("https://blog-app-zeta-vert.vercel.app/api/blog", {
     method: "POST",
-    body: JSON.stringify({ title, description }),
+    body: JSON.stringify({ title, description, userId }),
     //@ts-ignore
     "Content-Type": "application/json",
   });
@@ -24,13 +27,21 @@ const AddBlog = () => {
   const router = useRouter();
   const titleRef = useRef<HTMLInputElement | null>(null);
   const descRef = useRef<HTMLTextAreaElement | null>(null);
+  const { user } = useUser();
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (titleRef.current && descRef.current) {
       toast.loading("Sending request", { id: "1" });
+      if (!user) {
+        toast.error("User not authenticated");
+        return;
+      }
+      const userId = user.sub || '';
       await postBlog({
         title: titleRef.current?.value,
         description: descRef.current?.value,
+        userId: userId,
       });
       toast.success("Blog posted", { id: "1" });
       router.push("/blog");
